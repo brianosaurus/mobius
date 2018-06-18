@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col s12">
+    <h1> Welcome</h1>
+
+    <div *ngIf="!tokenAuthService.userSignedIn()">
+      Not signed in
+    </div>
+
+    <div *ngIf="tokenAuthService.userSignedIn()">
+      Signed in
+    </div>
+</div>

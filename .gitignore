@@ -12,6 +12,7 @@
 /tmp/
 /node_modules
 /mobius-frontend/node_modules
+/log/*
 
 # Used by dotenv library to load environment variables.
 # .env

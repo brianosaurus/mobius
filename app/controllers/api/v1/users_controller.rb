@@ -1,6 +1,5 @@
 class Api::V1::UsersController < ApplicationController
   def index
-    byebug
     users = User.where.not(email: 'admin@brian.biz')
     json_response(users)
   end

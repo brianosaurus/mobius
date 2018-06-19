@@ -5955,3 +5955,819 @@ Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 1.1ms)
 Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 4.4ms)
 
 
+Started GET "/auth/validate_token" for 127.0.0.1 at 2018-06-19 10:42:11 -0700
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 10:42:11 -0700
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 10:42:11 -0700
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as JSON
+  Parameters: {"token_validation"=>{}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 1027535ms (Views: 0.2ms | ActiveRecord: 10.5ms)
+
+
+  
+LoadError (Unable to autoload constant Api::V1::UsersController, expected /Users/brian/work/mobius/app/controllers/api/v1/users_controller.rb to define it):
+  
+Processing by Api::V1::UsersController#index as JSON
+activesupport (5.2.0) lib/active_support/dependencies.rb:503:in `load_missing_constant'
+bootsnap (1.3.0) lib/bootsnap/load_path_cache/core_ext/active_support.rb:43:in `load_missing_constant'
+activesupport (5.2.0) lib/active_support/dependencies.rb:193:in `const_missing'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:285:in `const_get'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:285:in `block in constantize'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `constantize'
+activesupport (5.2.0) lib/active_support/dependencies.rb:574:in `get'
+activesupport (5.2.0) lib/active_support/dependencies.rb:605:in `constantize'
+actionpack (5.2.0) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.0) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
+actionpack (5.2.0) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
+actionpack (5.2.0) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 11ms (Views: 6.1ms | ActiveRecord: 2.7ms)
+
+
+Started OPTIONS "/auth/validate_token" for 127.0.0.1 at 2018-06-19 10:59:26 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started OPTIONS "/api/v1/users" for 127.0.0.1 at 2018-06-19 10:59:26 -0700
+Started OPTIONS "/api/v1/current" for 127.0.0.1 at 2018-06-19 10:59:26 -0700
+Started GET "/auth/validate_token" for 127.0.0.1 at 2018-06-19 10:59:26 -0700
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 10:59:26 -0700
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as JSON
+  Parameters: {"token_validation"=>{}}
+Completed 200 OK in 36ms (Views: 29.7ms | ActiveRecord: 7.2ms)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 432884ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:06:39 -0700
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 6.3ms)
+
+
+Started OPTIONS "/auth/sign_out" for 127.0.0.1 at 2018-06-19 11:06:45 -0700
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:06:45 -0700
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:06:45 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (13.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started DELETE "/auth/sign_out" for 127.0.0.1 at 2018-06-19 11:06:46 -0700
+Processing by Api::V1::UsersController#index as JSON
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+Completed 200 OK in 42ms (Views: 25.3ms | ActiveRecord: 17.4ms)
+
+
+Processing by DeviseTokenAuth::SessionsController#destroy as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 74ms (Views: 0.1ms | ActiveRecord: 4.2ms)
+
+
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 132ms (Views: 0.2ms | ActiveRecord: 109.5ms)
+
+
+Started OPTIONS "/auth/sign_in" for 127.0.0.1 at 2018-06-19 11:06:53 -0700
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-06-19 11:06:53 -0700
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"me@brian.biz", "password"=>"[FILTERED]", "session"=>{"email"=>"me@brian.biz", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'me@brian.biz' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"VKInqJsFQDMhxopDAQMY7Q\":{\"token\":\"$2a$10$4/Ld/Vazmj/Jg4wEwIhQ6e8qK8Vf.MyO5VFH9BJAaj9L58fwwvYwe\",\"expiry\":1530560931,\"last_token\":\"$2a$10$rAAMKn9FKfk1LKaCR.l0muzUkTtOwmEvDIkbbKRqyOMsQg3YXh1A2\",\"updated_at\":\"2018-06-18T12:48:51.425-07:00\"},\"Me9JhcR9lrxv0sKRqcuPnQ\":{\"token\":\"$2a$10$jqnG08Mn6jI7AF5uwPn4vu5en9sztus1EKTDF6lmTNw1yd2dNByg.\",\"expiry\":1530561001,\"last_token\":\"$2a$10$R7CTG/s7xH0/haYZd6CPNehfIHLVGvTI54h9R650HDU9vEeYpcS8W\",\"updated_at\":\"2018-06-18T12:50:01.300-07:00\"},\"bCQQrtN-gVsOwb1u_LsBIg\":{\"token\":\"$2a$10$/DUE7FhETksCevW.QrQv7O5uYC65v/oE8DMDjgK0neV0BZZOX6x0i\",\"expiry\":1530561131,\"last_token\":\"$2a$10$G03uomSLOZy2fQv2Nr9/ceHwh6LFzZbAQ9Ek3l1dxtnRs/WNRMS6O\",\"updated_at\":\"2018-06-18T12:52:11.189-07:00\"},\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213}}"], ["updated_at", "2018-06-19 18:06:53.394046"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["sign_in_count", 44], ["current_sign_in_at", "2018-06-19 18:06:53.404205"], ["last_sign_in_at", "2018-06-19 17:27:20.642517"], ["updated_at", "2018-06-19 18:06:53.405068"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 190ms (Views: 0.2ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:06:53 -0700
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:06:53 -0700
+Processing by Api::V1::UsersController#index as JSON
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/response.rb:3
+  ↳ app/controllers/api/v1/users_controller.rb:3
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2018-06-19 11:07:10 -0700
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as JSON
+  Parameters: {"token_validation"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:07:10 -0700
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:07:10 -0700
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 75ms (Views: 0.4ms | ActiveRecord: 4.8ms)
+
+
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 13ms (Views: 3.1ms | ActiveRecord: 9.7ms)
+
+
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mTransaction Load (1.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 9.8ms)
+
+
+Started DELETE "/auth/sign_out" for 127.0.0.1 at 2018-06-19 11:12:17 -0700
+Started OPTIONS "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:12:17 -0700
+Started OPTIONS "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:12:17 -0700
+  [1m[35m (18.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (18.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (18.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:12:17 -0700
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:12:17 -0700
+Processing by DeviseTokenAuth::SessionsController#destroy as JSON
+  Parameters: {"session"=>{}}
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 196ms (Views: 20.8ms | ActiveRecord: 174.3ms)
+
+
+  [1m[35m (10.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-06-19 11:13:08 -0700
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"me@brian.biz", "password"=>"[FILTERED]", "session"=>{"email"=>"me@brian.biz", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"VKInqJsFQDMhxopDAQMY7Q\":{\"token\":\"$2a$10$4/Ld/Vazmj/Jg4wEwIhQ6e8qK8Vf.MyO5VFH9BJAaj9L58fwwvYwe\",\"expiry\":1530560931,\"last_token\":\"$2a$10$rAAMKn9FKfk1LKaCR.l0muzUkTtOwmEvDIkbbKRqyOMsQg3YXh1A2\",\"updated_at\":\"2018-06-18T12:48:51.425-07:00\"},\"Me9JhcR9lrxv0sKRqcuPnQ\":{\"token\":\"$2a$10$jqnG08Mn6jI7AF5uwPn4vu5en9sztus1EKTDF6lmTNw1yd2dNByg.\",\"expiry\":1530561001,\"last_token\":\"$2a$10$R7CTG/s7xH0/haYZd6CPNehfIHLVGvTI54h9R650HDU9vEeYpcS8W\",\"updated_at\":\"2018-06-18T12:50:01.300-07:00\"},\"bCQQrtN-gVsOwb1u_LsBIg\":{\"token\":\"$2a$10$/DUE7FhETksCevW.QrQv7O5uYC65v/oE8DMDjgK0neV0BZZOX6x0i\",\"expiry\":1530561131,\"last_token\":\"$2a$10$G03uomSLOZy2fQv2Nr9/ceHwh6LFzZbAQ9Ek3l1dxtnRs/WNRMS6O\",\"updated_at\":\"2018-06-18T12:52:11.189-07:00\"},\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"}}"], ["updated_at", "2018-06-19 18:13:08.801374"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'me@brian.biz' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (110.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Completed 200 OK in 50987ms (Views: 0.2ms | ActiveRecord: 128.8ms)
+
+
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mTransaction Load (2.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"VKInqJsFQDMhxopDAQMY7Q\":{\"token\":\"$2a$10$4/Ld/Vazmj/Jg4wEwIhQ6e8qK8Vf.MyO5VFH9BJAaj9L58fwwvYwe\",\"expiry\":1530560931,\"last_token\":\"$2a$10$rAAMKn9FKfk1LKaCR.l0muzUkTtOwmEvDIkbbKRqyOMsQg3YXh1A2\",\"updated_at\":\"2018-06-18T12:48:51.425-07:00\"},\"Me9JhcR9lrxv0sKRqcuPnQ\":{\"token\":\"$2a$10$jqnG08Mn6jI7AF5uwPn4vu5en9sztus1EKTDF6lmTNw1yd2dNByg.\",\"expiry\":1530561001,\"last_token\":\"$2a$10$R7CTG/s7xH0/haYZd6CPNehfIHLVGvTI54h9R650HDU9vEeYpcS8W\",\"updated_at\":\"2018-06-18T12:50:01.300-07:00\"},\"bCQQrtN-gVsOwb1u_LsBIg\":{\"token\":\"$2a$10$/DUE7FhETksCevW.QrQv7O5uYC65v/oE8DMDjgK0neV0BZZOX6x0i\",\"expiry\":1530561131,\"last_token\":\"$2a$10$G03uomSLOZy2fQv2Nr9/ceHwh6LFzZbAQ9Ek3l1dxtnRs/WNRMS6O\",\"updated_at\":\"2018-06-18T12:52:11.189-07:00\"},\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"6R274dV5j8kofQyIMpFPPA\":{\"token\":\"$2a$10$jKlvXBIT9zlsFhaR2GV3x.gHDR/CxjpgEaam8AkIx3nrR8E5gszfa\",\"expiry\":1530641588}}"], ["updated_at", "2018-06-19 18:13:08.974508"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  ↳ app/models/user.rb:27
+Completed 200 OK in 50997ms (Views: 0.1ms | ActiveRecord: 375.0ms)
+
+
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["sign_in_count", 45], ["current_sign_in_at", "2018-06-19 18:13:08.984722"], ["last_sign_in_at", "2018-06-19 18:06:53.404205"], ["updated_at", "2018-06-19 18:13:08.985668"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.9ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"bCQQrtN-gVsOwb1u_LsBIg\":{\"token\":\"$2a$10$/DUE7FhETksCevW.QrQv7O5uYC65v/oE8DMDjgK0neV0BZZOX6x0i\",\"expiry\":1530561131,\"last_token\":\"$2a$10$G03uomSLOZy2fQv2Nr9/ceHwh6LFzZbAQ9Ek3l1dxtnRs/WNRMS6O\",\"updated_at\":\"2018-06-18T12:52:11.189-07:00\"},\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"6R274dV5j8kofQyIMpFPPA\":{\"token\":\"$2a$10$gUADR.l6qEEcUreicALlPetrbiK7OKO3SJUituZK9Ji3p/0QL2PoW\",\"expiry\":1530641588,\"last_token\":\"$2a$10$jKlvXBIT9zlsFhaR2GV3x.gHDR/CxjpgEaam8AkIx3nrR8E5gszfa\",\"updated_at\":\"2018-06-19T11:13:08.997-07:00\"}}"], ["updated_at", "2018-06-19 18:13:09.054319"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 260ms (Views: 0.2ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:13:09 -0700
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:13:09 -0700
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.5ms)
+
+
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started OPTIONS "/auth/sign_out" for 127.0.0.1 at 2018-06-19 11:25:17 -0700
+Started OPTIONS "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:25:17 -0700
+Started OPTIONS "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:25:17 -0700
+  [1m[35m (8.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started DELETE "/auth/sign_out" for 127.0.0.1 at 2018-06-19 11:25:17 -0700
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:25:17 -0700
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:25:17 -0700
+Processing by DeviseTokenAuth::SessionsController#destroy as JSON
+  Parameters: {"session"=>{}}
+Processing by Api::V1::UsersController#index as JSON
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 29ms (Views: 2.5ms | ActiveRecord: 28.2ms)
+
+
+  [1m[36mTransaction Load (103.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (24.7ms)[0m  [1m[35mBEGIN[0m
+Started OPTIONS "/auth/sign_in" for 127.0.0.1 at 2018-06-19 11:25:26 -0700
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 8933ms (Views: 0.2ms | ActiveRecord: 8877.7ms)
+
+
+  [1m[36mUser Update (3.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"bCQQrtN-gVsOwb1u_LsBIg\":{\"token\":\"$2a$10$/DUE7FhETksCevW.QrQv7O5uYC65v/oE8DMDjgK0neV0BZZOX6x0i\",\"expiry\":1530561131,\"last_token\":\"$2a$10$G03uomSLOZy2fQv2Nr9/ceHwh6LFzZbAQ9Ek3l1dxtnRs/WNRMS6O\",\"updated_at\":\"2018-06-18T12:52:11.189-07:00\"},\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213}}"], ["updated_at", "2018-06-19 18:25:26.540722"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-06-19 11:25:26 -0700
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"me@brian.biz", "password"=>"[FILTERED]", "session"=>{"email"=>"me@brian.biz", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+  [1m[35m (13829.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 22778ms (Views: 1.3ms | ActiveRecord: 13887.6ms)
+
+
+Unpermitted parameter: :session
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'me@brian.biz' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"bCQQrtN-gVsOwb1u_LsBIg\":{\"token\":\"$2a$10$/DUE7FhETksCevW.QrQv7O5uYC65v/oE8DMDjgK0neV0BZZOX6x0i\",\"expiry\":1530561131,\"last_token\":\"$2a$10$G03uomSLOZy2fQv2Nr9/ceHwh6LFzZbAQ9Ek3l1dxtnRs/WNRMS6O\",\"updated_at\":\"2018-06-18T12:52:11.189-07:00\"},\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"H2b9U7NfR9Q1q3XQnZmqlA\":{\"token\":\"$2a$10$B1VBwIQOQNRU7qJIl.b9nuCNBUcwpVvaUHthum2ThL2gnV5w/vAAO\",\"expiry\":1530642386}}"], ["updated_at", "2018-06-19 18:26:30.551799"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["sign_in_count", 46], ["current_sign_in_at", "2018-06-19 18:27:06.513993"], ["last_sign_in_at", "2018-06-19 18:13:08.984722"], ["updated_at", "2018-06-19 18:27:06.515141"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"H2b9U7NfR9Q1q3XQnZmqlA\":{\"token\":\"$2a$10$SSOl.wQvuo3NS39uWAxoC.0oVxIEHOOM2C4Q5RQCuSU2pC9Q7lb1G\",\"expiry\":1530642426,\"last_token\":\"$2a$10$B1VBwIQOQNRU7qJIl.b9nuCNBUcwpVvaUHthum2ThL2gnV5w/vAAO\",\"updated_at\":\"2018-06-19T11:27:06.525-07:00\"}}"], ["updated_at", "2018-06-19 18:27:06.581423"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 100036ms (Views: 0.2ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:27:06 -0700
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:27:06 -0700
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.6ms)
+
+
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/auth/sign_out" for 127.0.0.1 at 2018-06-19 11:28:33 -0700
+Processing by DeviseTokenAuth::SessionsController#destroy as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-06-19 11:28:45 -0700
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:28:45 -0700
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:28:45 -0700
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"email"=>"me@brian.biz", "password"=>"[FILTERED]", "session"=>{"email"=>"me@brian.biz", "password"=>"[FILTERED]"}}
+  Parameters: {"user"=>{}}
+  [1m[36mUser Update (1.7ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382}}"], ["updated_at", "2018-06-19 18:28:45.737311"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+  [1m[35m (411.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 14113ms (Views: 6.0ms | ActiveRecord: 414.8ms)
+
+
+  [1m[36mUser Load (1072.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+Unpermitted parameter: :session
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mTransaction Load (5.1ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mUser Load (26.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'me@brian.biz' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mTransaction Load (3.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 4628ms (Views: 1.3ms | ActiveRecord: 2412.5ms)
+
+
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (736.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 5364ms (Views: 4624.5ms | ActiveRecord: 736.7ms)
+
+
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"IbC2SXj-sMxS0PQfa7UdBw\":{\"token\":\"$2a$10$.klOubdKmLDxU2XDKjoEzOcaWak8rdji54lFmxQQdR.7Z3KnWtYKW\",\"expiry\":1530642532}}"], ["updated_at", "2018-06-19 18:29:07.699151"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["sign_in_count", 47], ["current_sign_in_at", "2018-06-19 18:29:24.665568"], ["last_sign_in_at", "2018-06-19 18:27:06.513993"], ["updated_at", "2018-06-19 18:29:24.666709"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"IbC2SXj-sMxS0PQfa7UdBw\":{\"token\":\"$2a$10$jsSm8VnR.y.ZfZPTKOtmO.jfklFvpJkQaNLGzgELp7m7JpEK9BMGq\",\"expiry\":1530642564,\"last_token\":\"$2a$10$.klOubdKmLDxU2XDKjoEzOcaWak8rdji54lFmxQQdR.7Z3KnWtYKW\",\"updated_at\":\"2018-06-19T11:29:24.676-07:00\"}}"], ["updated_at", "2018-06-19 18:29:24.733737"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 39001ms (Views: 0.2ms | ActiveRecord: 41.0ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:29:24 -0700
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:29:24 -0700
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 56ms (Views: 0.6ms | ActiveRecord: 3.4ms)
+
+
+Started OPTIONS "/auth/validate_token" for 127.0.0.1 at 2018-06-19 11:30:40 -0700
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:30:40 -0700
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:30:40 -0700
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 1.8ms)
+
+
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2018-06-19 11:30:40 -0700
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as JSON
+  Parameters: {"token_validation"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.9ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"IbC2SXj-sMxS0PQfa7UdBw\":{\"token\":\"$2a$10$3H/DVqWk1J.1lzbKSjinYeNuZNPoBC77qWJt6Dois3edwMotL0hQG\",\"expiry\":1530642803,\"last_token\":\"$2a$10$jsSm8VnR.y.ZfZPTKOtmO.jfklFvpJkQaNLGzgELp7m7JpEK9BMGq\",\"updated_at\":\"2018-06-19T11:33:23.128-07:00\"}}"], ["updated_at", "2018-06-19 18:33:23.184782"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 163071ms (Views: 0.6ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2018-06-19 11:34:05 -0700
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:34:05 -0700
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:34:05 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as JSON
+  Parameters: {"token_validation"=>{}}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (8240.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 8248ms (Views: 6.7ms | ActiveRecord: 8258.8ms)
+
+
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  [1m[36mUser Load (6.9ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (3.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"IbC2SXj-sMxS0PQfa7UdBw\":{\"token\":\"$2a$10$0KVJ0AR4SXPWxb9CEIdK/.qk9BPByFJhh2P3CE/piUD03HOJwY/Lm\",\"expiry\":1530642853,\"last_token\":\"$2a$10$3H/DVqWk1J.1lzbKSjinYeNuZNPoBC77qWJt6Dois3edwMotL0hQG\",\"updated_at\":\"2018-06-19T11:34:13.784-07:00\"}}"], ["updated_at", "2018-06-19 18:34:13.846327"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 8389ms (Views: 0.2ms | ActiveRecord: 67.0ms)
+
+
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 8101ms (Views: 0.1ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2018-06-19 11:35:44 -0700
+Started OPTIONS "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:35:44 -0700
+Started OPTIONS "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:35:44 -0700
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as JSON
+  Parameters: {"token_validation"=>{}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:36:28 -0700
+  [1m[36mUser Load (1.2ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:36:28 -0700
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"IbC2SXj-sMxS0PQfa7UdBw\":{\"token\":\"$2a$10$04kKdTM6xpv9FpBQRdIi9Oigkp3iKPd5tBeHSWdKjewGw5ElmW9hO\",\"expiry\":1530642988,\"last_token\":\"$2a$10$0KVJ0AR4SXPWxb9CEIdK/.qk9BPByFJhh2P3CE/piUD03HOJwY/Lm\",\"updated_at\":\"2018-06-19T11:36:28.736-07:00\"}}"], ["updated_at", "2018-06-19 18:36:28.793742"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  
+Processing by Api::V1::UsersController#index as JSON
+  [1m[35m (14.4ms)[0m  [1m[35mCOMMIT[0m
+LoadError (Unable to autoload constant Api::V1::UsersController, expected /Users/brian/work/mobius/app/controllers/api/v1/users_controller.rb to define it):
+  Parameters: {"user"=>{}}
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  
+Completed 200 OK in 44473ms (Views: 0.2ms | ActiveRecord: 29.6ms)
+
+
+activesupport (5.2.0) lib/active_support/dependencies.rb:503:in `load_missing_constant'
+bootsnap (1.3.0) lib/bootsnap/load_path_cache/core_ext/active_support.rb:43:in `load_missing_constant'
+activesupport (5.2.0) lib/active_support/dependencies.rb:193:in `const_missing'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:285:in `const_get'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:285:in `block in constantize'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.0) lib/active_support/inflector/methods.rb:281:in `constantize'
+activesupport (5.2.0) lib/active_support/dependencies.rb:574:in `get'
+activesupport (5.2.0) lib/active_support/dependencies.rb:605:in `constantize'
+actionpack (5.2.0) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.0) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
+actionpack (5.2.0) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
+actionpack (5.2.0) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 91ms (Views: 87.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2018-06-19 11:37:10 -0700
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:37:20 -0700
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:37:20 -0700
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as JSON
+  Parameters: {"token_validation"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.0ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"IbC2SXj-sMxS0PQfa7UdBw\":{\"token\":\"$2a$10$.cP.KRicRSW7r7R4l2c/eO8UdQlUsb8pXLa6qRwRzShzPsWJK0StS\",\"expiry\":1530643040,\"last_token\":\"$2a$10$04kKdTM6xpv9FpBQRdIi9Oigkp3iKPd5tBeHSWdKjewGw5ElmW9hO\",\"updated_at\":\"2018-06-19T11:37:20.479-07:00\"}}"], ["updated_at", "2018-06-19 18:37:20.537114"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 152ms (Views: 0.4ms | ActiveRecord: 8.1ms)
+
+
+Processing by Api::V1::UsersController#current as JSON
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 36ms (Views: 2.1ms | ActiveRecord: 33.4ms)
+
+
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 49ms (Views: 0.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2018-06-19 11:37:55 -0700
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:37:55 -0700
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:37:55 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as JSON
+  Parameters: {"token_validation"=>{}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+Processing by Api::V1::UsersController#current as JSON
+  Parameters: {"user"=>{}}
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 2.2ms)
+
+
+  [1m[36mUser Load (2.8ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (59.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mUser Update (3.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"IbC2SXj-sMxS0PQfa7UdBw\":{\"token\":\"$2a$10$PQzwiZGKFvET6V0n/Kt.z.nDErQp5V6V8eD8u5lQuOXEQrMj.5MSi\",\"expiry\":1530643076,\"last_token\":\"$2a$10$.cP.KRicRSW7r7R4l2c/eO8UdQlUsb8pXLa6qRwRzShzPsWJK0StS\",\"updated_at\":\"2018-06-19T11:37:56.044-07:00\"}}"], ["updated_at", "2018-06-19 18:37:56.101139"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 166ms (Views: 0.3ms | ActiveRecord: 18.2ms)
+
+
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 83ms (Views: 0.2ms | ActiveRecord: 148.9ms)
+
+
+Started OPTIONS "/auth/sign_out" for 127.0.0.1 at 2018-06-19 11:37:59 -0700
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:37:59 -0700
+Processing by Api::V1::UsersController#index as JSON
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:37:59 -0700
+  Parameters: {"user"=>{}}
+Processing by Api::V1::UsersController#current as JSON
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  Parameters: {"user"=>{}}
+  ↳ app/controllers/concerns/response.rb:3
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 2.1ms)
+
+
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mTransaction Load (1.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+Started DELETE "/auth/sign_out" for 127.0.0.1 at 2018-06-19 11:37:59 -0700
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 4.9ms)
+
+
+Processing by DeviseTokenAuth::SessionsController#destroy as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382}}"], ["updated_at", "2018-06-19 18:37:59.632573"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 81ms (Views: 0.2ms | ActiveRecord: 3.6ms)
+
+
+Started OPTIONS "/auth/sign_in" for 127.0.0.1 at 2018-06-19 11:38:07 -0700
+Started POST "/auth/sign_in" for 127.0.0.1 at 2018-06-19 11:38:07 -0700
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"me@brian.biz", "password"=>"[FILTERED]", "session"=>{"email"=>"me@brian.biz", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'me@brian.biz' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :session
+Unpermitted parameter: :session
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"v1nerQivfBkHIm-cQ7NUnw\":{\"token\":\"$2a$10$iNR42tsePKwG.td71S.VvuVRlDMKGTHNdj9/uI14mHAarTQ/B4Fre\",\"expiry\":1530643087}}"], ["updated_at", "2018-06-19 18:38:07.559925"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["sign_in_count", 48], ["current_sign_in_at", "2018-06-19 18:38:07.573544"], ["last_sign_in_at", "2018-06-19 18:29:24.665568"], ["updated_at", "2018-06-19 18:38:07.574471"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Enbfi02a-SYCLgMviGG5GA\":{\"token\":\"$2a$10$MhwKlCje8JDTEGxrahTiIuDPmufoLQa5Pd3J1d4MvYA5S5Hua4GyS\",\"expiry\":1530561200,\"last_token\":\"$2a$10$BzjDIzR/KM0KpERUC6B5g.0j859.nsnbhzNqXYgJYCjTtN6iqFk9W\",\"updated_at\":\"2018-06-18T12:53:20.306-07:00\"},\"kRWYexmOGxgkdRWtQm9MTg\":{\"token\":\"$2a$10$kYYbMfe6mSKSrB.QcuiNV.6tsbLMUcHi.QBEmmz3hvvcav0X8x7F2\",\"expiry\":1530561283,\"last_token\":\"$2a$10$FUibzWpGbeDSJrMS/CXpOeiVfVPg0KVUfGFlgHFnHER2oSNcUO4ze\",\"updated_at\":\"2018-06-18T12:54:43.145-07:00\"},\"UxdlX1NoVzb7I_rv60U7Cw\":{\"token\":\"$2a$10$FBr8lEeWNKJ6m.rftuSUzueSMoK.jZUhak.MeLQInQarS.K.Ehmhu\",\"expiry\":1530561449,\"last_token\":\"$2a$10$eOO0g5fWRSBhIU.ivRmgRur4pkRkB9k4DfHaJI.RAEYvoQf/FGW..\",\"updated_at\":\"2018-06-18T12:57:29.046-07:00\"},\"577IKgG71-qdAsJzs0vS3Q\":{\"token\":\"$2a$10$1.nCkkLAytKFI3JSt9woU.6RAG/ItR5SUhuJzdnbazpcCDNrVYVpq\",\"expiry\":1530561510,\"last_token\":\"$2a$10$EkAd4Ae6a.3.P.biMI/ANeBuKJ1xRLKXlAxTOfkN38kH0xpFuZvOu\",\"updated_at\":\"2018-06-18T12:58:30.138-07:00\"},\"Qi1rcOg1QVMHmbAwzJa1AA\":{\"token\":\"$2a$10$u4SlfZZelTQ.TW..AIJXt.cLFj5Wv3mpWzhdssKPDlbZmRLxS0f9O\",\"expiry\":1530561510,\"last_token\":\"$2a$10$clnVwaCkJ93kd0sUDTQ08ukYCzECTgc8M0YFviCV4Y5t8s8I.WZPC\",\"updated_at\":\"2018-06-18T12:58:30.206-07:00\"},\"h9qf6gYrivIcS8LOA8mc5A\":{\"token\":\"$2a$10$uw0WzE25s1aSCJTKP3aUT.oJHb0aRXgo/0AgIqX6xolmAYsSe5Tka\",\"expiry\":1530638479,\"last_token\":\"$2a$10$av8MfkwbGygCgTB12LIFKelS5pf7q2naScl6ZWaQ5kqvP/dWQnAge\",\"updated_at\":\"2018-06-19T10:21:20.122-07:00\"},\"pzSy3vcUuWpQvJxyJVln5A\":{\"token\":\"$2a$10$BJUd.k82E/AWL3Y5GrgWaOZenoduycz2jogjencQ0SmzlMpVbOO4G\",\"expiry\":1530639219,\"last_token\":\"$2a$10$420yt7I7cFYGSerPJwds0u.crHEZrSgWO2Ur9duPKDDjPGdvX5WuC\",\"updated_at\":\"2018-06-19T10:33:39.120-07:00\"},\"1Rv4oc8SPcWwuwaTBel-Fg\":{\"token\":\"$2a$10$DIbIMOrz422S4/YRCvT2mu2g/XwCT/5RWwtX8Xz.dZgLOyOdvLvyO\",\"expiry\":1530641213},\"gDODcZX79EmKCckTmMICLg\":{\"token\":\"$2a$10$iRbtZ4/VQ.NmboaI3bWqyeKFVOPvf/tpZaRlmTSZh1MfaUZoz1I8G\",\"expiry\":1530642382},\"v1nerQivfBkHIm-cQ7NUnw\":{\"token\":\"$2a$10$zNmJOeJOGrReyenedhLm/eJP2hd72PalXkXXn7zs6150/aiEFU8QS\",\"expiry\":1530643087,\"last_token\":\"$2a$10$iNR42tsePKwG.td71S.VvuVRlDMKGTHNdj9/uI14mHAarTQ/B4Fre\",\"updated_at\":\"2018-06-19T11:38:07.579-07:00\"}}"], ["updated_at", "2018-06-19 18:38:07.635522"], ["id", 1]]
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/brian/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 249ms (Views: 0.1ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-06-19 11:38:07 -0700
+Processing by Api::V1::UsersController#index as JSON
+  Parameters: {"user"=>{}}
+Started GET "/api/v1/current" for 127.0.0.1 at 2018-06-19 11:38:07 -0700
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" != $1[0m  [["email", "admin@brian.biz"]]
+  ↳ app/controllers/concerns/response.rb:3
+Processing by Api::V1::UsersController#current as JSON
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.9ms)
+
+
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@brian.biz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:3
+  [1m[36mTransaction Load (1.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."to_id" = $1[0m  [["to_id", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."from_id" = $1[0m  [["from_id", 1]]
+  ↳ app/models/user.rb:27
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+
+

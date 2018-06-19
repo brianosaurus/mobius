@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { map } from 'rxjs/operators';
-import { Observable, from } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Angular2TokenService } from "angular2-token";
+
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
 
 @Injectable()
 export class UsersService {
@@ -15,18 +17,18 @@ export class UsersService {
 
   getUsers(tokenAuthService:Angular2TokenService){
     return tokenAuthService.get(this.url)
-      .pipe(map(res => res.json()));
+      .map(res => res.json());
   }
 
   // not needed
   getUser(tokenAuthService:Angular2TokenService, id){
     return tokenAuthService.get(this.getUserUrl(id))
-      .pipe(map(res => res.json()));
+      .map(res => res.json());
   }
 
   getBalance(tokenAuthService:Angular2TokenService){
     return tokenAuthService.get(this.host + "api/v1/current")
-      .pipe(map(res => res.json()));
+      .map(res => res.json());
   }
 
   sendToUser(tokenAuthService:Angular2TokenService, user, amount){

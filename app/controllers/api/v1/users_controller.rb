@@ -1,14 +1,6 @@
 class Api::V1::UsersController < ApplicationController
-  def current_user
-    @current_user ||= User.find_by_email(request.headers['uid'])
-  end
-
-  def user_signed_in?
-    !!current_user
-  end
-
-
   def index
+    byebug
     users = User.where.not(email: 'admin@brian.biz')
     json_response(users)
   end

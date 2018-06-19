@@ -9,5 +9,7 @@
     "jquery": "^2.2.4",
     "materialize-css": "^0.100.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@angular/cli": "^1.4.3"
+  }
 }

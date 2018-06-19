@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubFormSubmit()" #f="ngForm" >
+
+  <div class="row">
+    <div class="input-field col s12">
+      <h3>{{ id }}</h3>
+    </div>
+
+    <div class="input-field col s12">
+      <h3>{{ email }}</h3>
+    </div>
+
+    <div class="input-field col s12">
+      <input type="number"
+             required
+             name='amount'
+             [(ngModel)]="amount"
+             class="validate">
+
+      <label for="amount">Amount</label>
+    </div>
+
+     <div class="col s12 ">
+      <button type="submit" 
+              [disabled]="!(f.valid)" 
+              [ngClass]="{'disabled': !(f.valid)}" 
+              class="waves-effect waves-light btn blue right"
+      > 
+        Send </button>
+    </div>
+
+  </div>
+
+</form>

@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1, defaults: { format: :json } do
       resources :users do
-        put :send
-        get :current
+        put :make_payment
       end
+
+      get 'current', to: 'users#current'
     end
   end
 end

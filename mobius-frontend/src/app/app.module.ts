@@ -13,7 +13,8 @@ import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 
-import { UsersService } from 'users.service';
+import { UsersService } from './users.service';
+import { SubformComponent } from './subform/subform.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UsersService } from 'users.service';
     ToolbarComponent,
     AuthDialogComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    SubformComponent
   ],
   imports: [
     BrowserModule,

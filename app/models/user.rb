@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :transactions, foreign_key: :to
+  has_many :transactions, foreign_key: :from
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -15,10 +15,15 @@ class User < ApplicationRecord
   after_create :set_default_amount
 
   def set_default_amount
-    self.transactions.create!({to: self, amount: 100})
+    admin = User.find_by_email('admin@brian.biz')
+
+    transaction = admin.transactions.build({amount: 100})
+    transaction.to = self
+    transaction.save!
   end
 
   def balance
-    self.transactions.sum { |t| t.amount } || 0
+    # UTXO like but in psql
+     Transaction.where(to: self.id).sum { |t| t.amount } - self.transactions.sum { |t| t.amount }
   end
 end

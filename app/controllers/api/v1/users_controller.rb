@@ -23,6 +23,13 @@ class Api::V1::UsersController < ApplicationController
 
       transaction = current_user.transactions.build({amount: amount})
       transaction.to = user
+
+      # checks for a negative blaance ... if there is one it'll
+      # throw an error
+      unless current_user.valid?
+        return json_response(current_user, :unprocessable_entity)
+      end
+
       transaction.save!
     end
 

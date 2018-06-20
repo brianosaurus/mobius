@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   after_create :set_default_amount
 
+  validates :balance, numericality: { greater_than_or_equal_to: 0 }
+
   def set_default_amount
     admin = User.find_by_email('admin@brian.biz')
 

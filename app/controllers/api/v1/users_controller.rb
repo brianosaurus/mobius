@@ -26,11 +26,13 @@ class Api::V1::UsersController < ApplicationController
 
       # checks for a negative blaance ... if there is one it'll
       # throw an error
-      unless current_user.valid?
-        return json_response(current_user, :unprocessable_entity)
-      end
+      ActiveRecord::Base.transaction do
+        unless current_user.valid?
+          return json_response(current_user, :unprocessable_entity)
+        end
 
-      transaction.save!
+        transaction.save!
+      end
     end
 
     head :no_content
